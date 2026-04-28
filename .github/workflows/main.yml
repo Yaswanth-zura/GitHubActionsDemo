@@ -21,7 +21,9 @@ jobs:
           distribution: 'corretto'
 
       - name: Unit Tests
-        run: mvn -B test --file spring-app/pom.xml
+        working-directory: Spring-App   # <-- EXACT folder name
+        run: mvn -B test
 
-      - name: Build the application
-        run: mvn -B package --file spring-app/pom.xml
+      - name: Build
+        working-directory: Spring-App
+        run: mvn clean package
